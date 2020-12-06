@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body oncontextmenu="return false;">
+  <h1><%= title %></h1>
+  <p>Welcome to <%= title %></p>
+  <p>
+  <form action="auth" method="POST">
+    Autorizado? <%= auth %>
+    <input type="submit" value="Autorizar" />
+  </form>
+  </p>
+  <p>
+  <form action="images" method="POST" enctype="multipart/form-data">
+    <p>Pasta:
+      <select name="folder">
+        <option value="1i0xy3duWqZzbBLGNEnvjYNL_Cm-CBpbF">Teste</option>
+        <option value="1ZbCfuJntC1CE_ombcj9NyfOm2n6RNby7">Percutz</option>
+      </select>
+    </p>
+    Upload de Imagem: <input type="file" name="image" />
+    <input type="submit" value="Enviar" />
+  </form>
+  </p>
+  <p>
+    <img id="image1" src="<%= image %>" width="320" height="240" />
+  </p>
+  <p>
+  <form action="videos" method="POST" enctype="multipart/form-data">
+    <p>Pasta:
+      <select name="folder">
+        <option value="1i0xy3duWqZzbBLGNEnvjYNL_Cm-CBpbF">Teste</option>
+        <option value="1ZbCfuJntC1CE_ombcj9NyfOm2n6RNby7">Percutz</option>
+      </select>
+    </p>
+    Upload de Vídeo: <input type="file" name="video" />
+    <input type="submit" value="Enviar" />
+  </form>
+  </p>
+  <p>
+    <video id="video1" width="320" height="240" controls>
+      <source src="<%= video %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </p>
+  <p>
+  <form action="audios" method="POST" enctype="multipart/form-data">
+    <p>Pasta:
+      <select name="folder">
+        <option value="1i0xy3duWqZzbBLGNEnvjYNL_Cm-CBpbF">Teste</option>
+        <option value="1ZbCfuJntC1CE_ombcj9NyfOm2n6RNby7">Percutz</option>
+      </select>
+    </p>
+    Upload de Áudio: <input type="file" name="audio" />
+    <input type="submit" value="Enviar" />
+  </form>
+  </p>
+  <p>
+    <audio id="audio1" controls>
+      <source src="<%= audio %>" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+  </p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      let isPlaying = false;
+      document.getElementById('video1').onclick = function () {
+        if (!isPlaying) {
+          this.play();
+          isPlaying = true;
+        }
+        else {
+          this.pause();
+          isPlaying = false;
+        }
+      };
+    });
+  </script>
+</body>
+
+</html>
